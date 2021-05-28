@@ -19,33 +19,34 @@ import javax.inject.Inject;
 @SessionScoped
 public class MainController implements Serializable {
 
-   
-    NewJerseyClient newJerseyClient;
-    
     private String apiRequestId;
     private String respose;
     private String status;
-    
+
     private String month;
     private String year;
     private String name;
     private String id;
     private String instituteId;
-    
+
     /**
      * Creates a new instance of MainController
      */
     public MainController() {
     }
 
-    public void rendApiRequestPath(){
-       respose = getNewJerseyClient().updateClientProcedureRest(apiRequestId, status);
+    public void rendApiRequestPath() {
+        NewJerseyClient newJerseyClient = new NewJerseyClient();
+        respose = newJerseyClient.updateClientProcedureRest(apiRequestId, status);
+        newJerseyClient.close();
     }
-    
-    public void rendApiRequestData(){
-       respose = getNewJerseyClient().getJson(month, year, name, id, instituteId);
+
+    public void rendApiRequestData() {
+        NewJerseyClient newJerseyClient = new NewJerseyClient();
+        respose = newJerseyClient.getJson(month, year, name, id, instituteId);
+        newJerseyClient.close();
     }
-    
+
     public String getApiRequestId() {
         return apiRequestId;
     }
@@ -68,17 +69,6 @@ public class MainController implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public NewJerseyClient getNewJerseyClient() {
-        if(newJerseyClient==null){
-            newJerseyClient = new NewJerseyClient();
-        }
-        return newJerseyClient;
-    }
-
-    public void setNewJerseyClient(NewJerseyClient newJerseyClient) {
-        this.newJerseyClient = newJerseyClient;
     }
 
     public String getMonth() {
@@ -120,7 +110,5 @@ public class MainController implements Serializable {
     public void setInstituteId(String instituteId) {
         this.instituteId = instituteId;
     }
-    
-    
-    
+
 }

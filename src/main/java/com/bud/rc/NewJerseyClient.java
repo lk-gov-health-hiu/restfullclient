@@ -24,7 +24,6 @@ import javax.ws.rs.client.WebTarget;
  * @author buddhika
  */
 public class NewJerseyClient {
-
     private WebTarget webTarget;
     private Client client;
     private static final String BASE_URI = "https://hims.health.gov.lk/data";
