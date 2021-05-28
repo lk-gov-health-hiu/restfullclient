@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+
+        <h:form >
+            <h:panelGrid columns="1" >
+                <h:outputLabel value="ID" ></h:outputLabel>
+                <h:inputText value="#{mainController.apiRequestId}" ></h:inputText>
+
+                <h:outputLabel value="Status" ></h:outputLabel>
+                <h:inputText value="#{mainController.status}" ></h:inputText>
+
+                <h:commandButton value="Send Request" action="#{mainController.rendApiRequestPath()}" ></h:commandButton>
+                <h:inputTextarea value="#{mainController.respose}" cols="30" rows="5" ></h:inputTextarea>
+            </h:panelGrid>
+        </h:form>
+
+        <h:form >
+            <h:panelGrid columns="1" >
+                <h:outputLabel value="Name" ></h:outputLabel>
+                <h:inputText value="#{mainController.name}" ></h:inputText>
+
+                <h:outputLabel value="Year" ></h:outputLabel>
+                <h:inputText value="#{mainController.year}" ></h:inputText>
+
+                <h:outputLabel value="Month" ></h:outputLabel>
+                <h:inputText value="#{mainController.month}" ></h:inputText>
+
+                <h:outputLabel value="ID" ></h:outputLabel>
+                <h:inputText value="#{mainController.id}" ></h:inputText>
+
+                <h:outputLabel value="Institute ID" ></h:outputLabel>
+                <h:inputText value="#{mainController.instituteId}" ></h:inputText>
+
+                <h:commandButton value="Send Request" action="#{mainController.rendApiRequestData()}" ></h:commandButton>
+                <h:inputTextarea value="#{mainController.respose}"  cols="30" rows="5" ></h:inputTextarea>
+            </h:panelGrid>
+        </h:form>
+
+    </h:body>
+</html>
+
